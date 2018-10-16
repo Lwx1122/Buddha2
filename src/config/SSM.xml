@@ -65,7 +65,7 @@
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 使用 -->
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-		<property name="prefix" value="/WEB-INF/Back/"></property>
+		<property name="prefix" value="/WEB-INF/Jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	

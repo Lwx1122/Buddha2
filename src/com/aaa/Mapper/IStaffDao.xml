@@ -2,19 +2,19 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="com.lwx.Dao.IStuDao">
-  	<select id="findStus" resultType="map"  >
-		select s.id,s.name, s.birthday,( year(now())-year(s.birthday) ) age ,c.id classid,c.name classname from stuinfo s join clssinfo c on c.id=s.classid where 1=1 
-			<if test="stu.id !=null and stu.id !='' ">
+  <mapper namespace="com.aaa.Dao.IStaffDao">
+  	<select id="getAllStaff" resultType="map" >
+  		select * from staff where 1=1 
+			<!-- <if test="stu.id !=null and stu.id !='' ">
 				and s.id like concat('%', #{stu.id},'%') 
 			</if>
 			<if test="stu.name !=null and stu.name !='' ">
 				and s.name like concat('%',#{stu.name} ,'%')
 				
 			</if>
-		order by s.id limit #{page},#{rows} 
+		order by s.id limit #{page},#{rows}  -->
   	</select>
-  	<select id="getAllClass" resultType="map">
+  	<!-- <select id="getAllClass" resultType="map">
   		select * from clssinfo
   	</select>
   	<insert id="addStu" parameterType="stuInfo">
@@ -45,5 +45,5 @@
   	
   <select id ="getAllMenu" resultType="map">
   	select * from  menu
-  </select>
+  </select> -->
  </mapper>
