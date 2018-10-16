@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.lwx.Dao.IStuDao">
+  	<select id="findStus" resultType="map"  >
+		select s.id,s.name, s.birthday,( year(now())-year(s.birthday) ) age ,c.id classid,c.name classname from stuinfo s join clssinfo c on c.id=s.classid where 1=1 
+			<if test="stu.id !=null and stu.id !='' ">
+				and s.id like concat('%', #{stu.id},'%') 
+			</if>
+			<if test="stu.name !=null and stu.name !='' ">
+				and s.name like concat('%',#{stu.name} ,'%')
+				
+			</if>
+		order by s.id limit #{page},#{rows} 
+  	</select>
+  	<select id="getAllClass" resultType="map">
+  		select * from clssinfo
+  	</select>
+  	<insert id="addStu" parameterType="stuInfo">
+  		insert into stuinfo(name,birthday,classid) values(#{name},#{birthday},#{classid})
+  	</insert>
+  	<delete id="deleteStu" parameterType="stuInfo">
+  		delete from stuinfo where id = #{id}
+  	</delete>
+  	<update id="updateStu" parameterType="stuInfo">
+  		update stuinfo set name=#{name},birthday=#{birthday},classid=#{classid} where id= #{id}
+  	</update>
+  	<delete id="deleteStus" >
+  		delete from stuinfo where id in(
+  			<foreach collection="ids" item="id" separator="," index="index">
+  			#{id}
+  			</foreach>
+  		)
+  	</delete>
+  	<select id="getCount" parameterType="stuInfo" resultType="int">
+  		select count(*) from stuinfo where 1=1
+  		<if test="id !=null and id!=''">
+  			and id like concat('%',#{id},'%')
+  		</if>
+  		<if test="name !=null and name!=''">
+  			and name like concat('%',#{name},'%')
+  		</if>
+  	</select>
+  	
+  <select id ="getAllMenu" resultType="map">
+  	select * from  menu
+  </select>
+ </mapper>
