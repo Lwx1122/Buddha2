@@ -1,5 +1,8 @@
 package com.aaa.Inter;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -34,27 +37,15 @@ public class BackLoginInter implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse resp,
 			Object o) throws Exception {
 		HttpSession session = req.getSession();
-		Staff s = (Staff) session.getAttribute("staff");
+		 List<Map> staffList = (List<Map>) session.getAttribute("staffList");
 		String contextPath= req.getContextPath();
-		if(s == null){
+		if(staffList.size()>0){
 			resp.sendRedirect(contextPath+"/BackLogin.jsp");
 			return false;
 		}
 		return true;
 	}
 	
-	/*@Override
-	public boolean preHandle(HttpServletRequest req, HttpServletResponse resp,
-			Object o) throws Exception {
-		HttpSession session = req.getSession();
-		User u = (User)session.getAttribute("user");
-		String contextPath = req.getContextPath();//获取项目路径
-		System.out.println(contextPath);
-		if(u==null){
-			resp.sendRedirect(contextPath+"/index.jsp");
-			return false;
-		}
-		return true;
-	}*/
+	
 
 }
