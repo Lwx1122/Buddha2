@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.aaa.Service.IClientSer;
-@RequestMapping("f/cli")
+@RequestMapping("fro/cli")
 @Controller
 public class FrontClientCon {
 	@Autowired
