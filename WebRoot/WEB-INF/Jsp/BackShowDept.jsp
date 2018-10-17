@@ -40,12 +40,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <div class="am-u-sm-12 am-u-md-3">
                             <div class="am-form-group">
                                 <select data-am-selected="{btnSize: 'sm'}">
-              <option value="option1">所有部门</option>
+              <!-- <option value="option1">所有部门</option>
               <option value="option2">人事部</option>
               <option value="option3">财务部</option>
               <option value="option3">放映部</option>
               <option value="option3">销售部</option>
-              <option value="option3">后勤部</option>
+              <option value="option3">后勤部</option> -->
+              <c:forEach  items="${deptList}" var="dept">
+            	  <option value="${dept.DEPARTNUM}">${dept.DEPTNAME}</option>
+            	   
+              </c:forEach>
              
             </select>
                             </div>
@@ -68,10 +72,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
                                             <th class="table-id">ID</th>
-                                            <th class="table-title">部门名称</th>
-                                            <th class="table-type">部门编号</th>
-                                            <th class="table-author am-hide-sm-only">联系方式</th>
-                                            <th class="table-date am-hide-sm-only">成立时间</th>
+                                            <th class="table-title">部门编号</th>
+                                            <th class="table-type">部门名称</th>
+                                            <th class="table-author am-hide-sm-only">成立时间</th>
+                                            <th class="table-date am-hide-sm-only">部门状态</th>
                                             <th class="table-set">操作</th>
                                         </tr>
                                     </thead>
@@ -84,7 +88,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <td><a href="#">${dept.DEPARTNUM }</a></td>
                                             <td>${dept.DEPTNAME }</td>
                                             <td class="am-hide-sm-only">${dept.ADDTIME }</td>
-                                            <td class="am-hide-sm-only">${dept.STATU}</td>
+                                            <c:if test="${dept.STATU==0}">
+                                            <td class="am-hide-sm-only">使用中</td>
+                                            </c:if>
+                                            <c:if test="${dept.STATU==1}">
+                                            <td class="am-hide-sm-only">暂停使用</td>
+                                            </c:if>
+                                            
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
