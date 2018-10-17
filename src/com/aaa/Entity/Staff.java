@@ -1,7 +1,11 @@
 package com.aaa.Entity;
 
 import java.util.Date;
-
+/**
+ * 
+ * @李文霞 Administrator
+ *2018年10月17日
+ */
 public class Staff {
 	private Integer id;
 	private Integer jobnum;

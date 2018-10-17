@@ -5,7 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
+/**
+ * 
+ * @李文霞 Administrator
+ *2018年10月17日
+ */
 public class BackLoginInter implements HandlerInterceptor{
 
 	@Override
