@@ -3,17 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.aaa.Dao.IStaffDao">
-  	<select id="getAllStaff" resultType="map" >
+  <select id="getAllStaff" resultType="map">
+  	select * from staff
+  </select>
+  <update id="updStaff" parameterType="staff">
+  	update staff set id = 2 
+  </update>
+    	<!-- <select id="getAllStaff" resultType="map" >
   		select * from staff where 1=1 
-			<!-- <if test="stu.id !=null and stu.id !='' ">
+			<if test="stu.id !=null and stu.id !='' ">
 				and s.id like concat('%', #{stu.id},'%') 
 			</if>
 			<if test="stu.name !=null and stu.name !='' ">
 				and s.name like concat('%',#{stu.name} ,'%')
 				
 			</if>
-		order by s.id limit #{page},#{rows}  -->
-  	</select>
+		order by s.id limit #{page},#{rows} 
+  	</select> -->
   	<!-- <select id="getAllClass" resultType="map">
   		select * from clssinfo
   	</select>

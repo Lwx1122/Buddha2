@@ -18,11 +18,16 @@ public class BackStaffController {
 	@Autowired
 	private IStaffSer staffSer;
 	@RequestMapping("/getAllStaff")
-	public String findAllStaff(Staff s ,Integer jobnum,String name,Integer pageSize,Integer currPage,HttpServletRequest req){
-		List<Map> staffList=staffSer.getAllStaff(s,jobnum,name,pageSize,currPage);
+	public String findAllStaff(Staff s ,Integer pageSize,Integer currPage,HttpServletRequest req){
+		List<Map> staffList=staffSer.getAllStaff(s,pageSize,currPage);
 		System.out.println(staffList);
-		req.setAttribute("staffList", staffList);
+		//req.setAttribute("staffList", staffList);
 		return "BackshowStaff";
 		
+	}
+	@RequestMapping("upStaff")
+	public String upStaff(Staff s){
+		int j = staffSer.updStaff(s);
+		return "BackshowStaff";
 	}
 }

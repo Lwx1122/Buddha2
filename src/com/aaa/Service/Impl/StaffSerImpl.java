@@ -14,10 +14,14 @@ public class StaffSerImpl implements IStaffSer {
 	@Autowired
 	private IStaffDao staffDao;
 	@Override
-	public List<Map> getAllStaff(Staff s, Integer jobnum, String name,
-			Integer pageSize, Integer currPage) {
+	public List<Map> getAllStaff(Staff s, Integer pageSize, Integer currPage) {
 		// TODO Auto-generated method stub
-		return staffDao.getAllStaff(s,jobnum,name,pageSize,currPage);
+		return staffDao.getAllStaff(s,pageSize,currPage);
+	}
+	@Override
+	public int updStaff(Staff s) {
+		// TODO Auto-generated method stub
+		return staffDao.updStaff(s);
 	}
 
 }

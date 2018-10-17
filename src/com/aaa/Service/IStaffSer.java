@@ -7,7 +7,8 @@ import com.aaa.Entity.Staff;
 
 public interface IStaffSer {
 
-	List<Map> getAllStaff(Staff s, Integer jobnum, String name,
-			Integer pageSize, Integer currPage);
+	List<Map> getAllStaff(Staff s, Integer jobnum, Integer pageSize);
+
+	int updStaff(Staff s);
 	
 }
