@@ -33,9 +33,14 @@ public class StaffSerImpl implements IStaffSer {
 		return staffDao.getAllSta();
 	}
 
+	/**
+	 * 后台登录
+	 */
 	@Override
 	public List<Map> getLogin(String loginstr, String password) {
 		// TODO Auto-generated method stub
+		// 小写转大写
+		loginstr = loginstr.toUpperCase();
 		return staffDao.getLogin(loginstr, password);
 	}
 

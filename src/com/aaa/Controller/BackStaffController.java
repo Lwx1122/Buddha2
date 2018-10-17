@@ -42,11 +42,25 @@ public class BackStaffController {
 		return "BackshowStaff";
 	}
 
+	/**
+	 * 登录 2018年10月17日
+	 * 
+	 * @爽宝宝
+	 * @param loginstr
+	 *            工号或电话
+	 * @param password
+	 *            密码
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/Login")
 	public String Login(String loginstr, String password, HttpSession session) {
 		List<Map> staffList = staffSer.getLogin(loginstr, password);
-		session.setAttribute("staffList", staffList);
-		return "BackShowDept";
+		if (staffList.size() > 0) {
+			session.setAttribute("staffList", staffList);
+			return "BackShowDept";
+		}
+		return "forward:/BackLogin.jsp";
 
 	}
 
@@ -57,4 +71,5 @@ public class BackStaffController {
 		return list;
 
 	}
+
 }
