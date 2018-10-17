@@ -25,6 +25,13 @@ public class BackStaffController {
 		return "BackshowStaff";
 		
 	}
+	/**
+	 * 
+	 * @李文霞
+	 * 2018年10月17日
+	 * @param s
+	 * @return
+	 */
 	@RequestMapping("upStaff")
 	public String upStaff(Staff s){
 		int j = staffSer.updStaff(s);

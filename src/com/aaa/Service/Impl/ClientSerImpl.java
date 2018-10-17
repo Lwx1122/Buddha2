@@ -13,6 +13,9 @@ import com.aaa.Service.IClientSer;
 public class ClientSerImpl implements IClientSer {
 	@Autowired
 	private IClientDao clientDao;
+	/**
+	 * 
+	 */
 	@Override
 	public List<Map> getAll() {
 		// TODO Auto-generated method stub

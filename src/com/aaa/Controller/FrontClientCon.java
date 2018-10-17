@@ -14,6 +14,12 @@ import com.aaa.Service.IClientSer;
 public class FrontClientCon {
 	@Autowired
 	private IClientSer clientSer;
+	/**
+	 * 
+	 * @李文霞
+	 * 2018年10月17日
+	 * @return
+	 */
 	@RequestMapping("/getAll")
 	public String findAll(){
 		List<Map> listmap = clientSer.getAll();
