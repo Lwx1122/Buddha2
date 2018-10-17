@@ -2,9 +2,12 @@ package com.aaa.Inter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.aaa.Entity.Client;
 /**
  * 
  * @¿ÓŒƒœº Administrator
@@ -16,7 +19,7 @@ public class FrontLoginInter implements HandlerInterceptor{
 	public void afterCompletion(HttpServletRequest arg0,
 			HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -28,10 +31,16 @@ public class FrontLoginInter implements HandlerInterceptor{
 	}
 
 	@Override
-	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1,
-			Object arg2) throws Exception {
-		
-		return false;
+	public boolean preHandle(HttpServletRequest req, HttpServletResponse resp,
+			Object o) throws Exception {
+		HttpSession session = req.getSession();
+		Client c = (Client) session .getAttribute("client");
+		String path= req.getContextPath();
+		if(c==null){
+			resp.sendRedirect(path+"/index.jsp");
+			return false;
+		}
+		return true;
 	}
 	
 

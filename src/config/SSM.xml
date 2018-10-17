@@ -12,6 +12,20 @@
 	<!--配置注解扫描器  -->
 	<context:component-scan base-package="com.aaa.Controller"></context:component-scan>
 	
+	<mvc:interceptors>
+		<!-- 前台拦截路径 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/fro/**/" />
+			<mvc:exclude-mapping path="/fro/login.do" /><!-- 不拦截的路径 -->
+			<bean class="com.aaa.Inter.FrontLoginInter"></bean>
+		</mvc:interceptor>
+		<!-- 后台未登录拦截 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/back/**/" />
+			<mvc:exclude-mapping path="/back/login.do" /><!-- 不拦截的路径 -->
+			<bean class="com.aaa.Inter.BackLoginInter"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	
 	
 	<mvc:annotation-driven>
