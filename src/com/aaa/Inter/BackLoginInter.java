@@ -39,6 +39,7 @@ public class BackLoginInter implements HandlerInterceptor{
 		HttpSession session = req.getSession();
 		 List<Map> staffList = (List<Map>) session.getAttribute("staffList");
 		String contextPath= req.getContextPath();
+		System.out.println(staffList.toString());
 		if(staffList.size()>0){
 			resp.sendRedirect(contextPath+"/BackLogin.jsp");
 			return false;

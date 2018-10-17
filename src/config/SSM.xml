@@ -22,7 +22,7 @@
 		<!-- 后台未登录拦截 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/back/**/" />
-			<mvc:exclude-mapping path="/back/login.do" /><!-- 不拦截的路径 -->
+			<mvc:exclude-mapping path="/back/staff/Login.do" /><!-- 不拦截的路径 -->
 			<bean class="com.aaa.Inter.BackLoginInter"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
