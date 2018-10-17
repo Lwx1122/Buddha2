@@ -52,4 +52,10 @@
   <select id ="getAllMenu" resultType="map">
   	select * from  menu
   </select> -->
+  
+  <select id="getLogin" resultType="map">
+  select * from staff where ( jobnum = #{str} or tel = #{str} ) and password= #{pas} 
+  </select>
+  
+  
  </mapper>

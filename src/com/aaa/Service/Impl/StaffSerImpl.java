@@ -9,19 +9,34 @@ import org.springframework.stereotype.Service;
 import com.aaa.Dao.IStaffDao;
 import com.aaa.Entity.Staff;
 import com.aaa.Service.IStaffSer;
+
 @Service
 public class StaffSerImpl implements IStaffSer {
 	@Autowired
 	private IStaffDao staffDao;
+
 	@Override
 	public List<Map> getAllStaff(Staff s, Integer pageSize, Integer currPage) {
 		// TODO Auto-generated method stub
-		return staffDao.getAllStaff(s,pageSize,currPage);
+		return staffDao.getAllStaff(s, pageSize, currPage);
 	}
+
 	@Override
 	public int updStaff(Staff s) {
 		// TODO Auto-generated method stub
 		return staffDao.updStaff(s);
+	}
+
+	@Override
+	public List<Map> getAllSta() {
+		// TODO Auto-generated method stub
+		return staffDao.getAllSta();
+	}
+
+	@Override
+	public List<Map> getLogin(String loginstr, String password) {
+		// TODO Auto-generated method stub
+		return staffDao.getLogin(loginstr, password);
 	}
 
 }

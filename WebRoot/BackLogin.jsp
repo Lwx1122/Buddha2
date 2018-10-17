@@ -33,13 +33,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<i>电话 </i> 或 <span> 工号</span>
 		</div>
 		<div class="am-u-sm-10 login-am-center">
-			<form class="am-form">
+			<form class="am-form" action="back/staff/Login.do">
 				<fieldset>
-					<div class="am-form-group">
-						<input type="email" class="" id="doc-ipt-email-1" placeholder="请输入员工工号">
+					<div class="am-form-group" >
+						<input type="text" class="" id="doc-ipt-email-1" placeholder="请输入员工工号" name="loginstr">
 					</div>
 					<div class="am-form-group">
-						<input type="password" class="" id="doc-ipt-pwd-1" placeholder="请输入密码">
+						<input type="password" class="" id="doc-ipt-pwd-1" placeholder="请输入密码"  name="password">
 					</div>
 					<p><button type="submit" class="am-btn am-btn-default">登录</button></p>
 				</fieldset>
