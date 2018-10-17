@@ -3,6 +3,8 @@ package com.aaa.Controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -21,8 +23,9 @@ public class FrontClientCon {
 	 * @return
 	 */
 	@RequestMapping("/getAll")
-	public String findAll(){
+	public String findAll(HttpServletRequest req){
 		List<Map> listmap = clientSer.getAll();
+		req.setAttribute("listmap",listmap);
 		return "FgetClient";
 	}
 }
