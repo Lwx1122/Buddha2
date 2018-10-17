@@ -35,8 +35,9 @@ public class FrontLoginInter implements HandlerInterceptor{
 			Object o) throws Exception {
 		HttpSession session = req.getSession();
 		Client c = (Client) session .getAttribute("client");
+		String path= req.getContextPath();
 		if(c==null){
-			
+			resp.sendRedirect(path+"/index.jsp");
 			return false;
 		}
 		return true;
